@@ -6,23 +6,21 @@ const state = reactive({
   iframeUrl: '',
 })
 
-
-
-function fetchConfig() {
-  get(`/api/config`, '读取配置失败')
-    .then(data => {
-      state.iframeUrl = data['home_page_iframe']
-    });
-}
+// function fetchConfig() {
+//   get(`/api/config`, '读取配置失败')
+//     .then(data => {
+//       state.iframeUrl = "baidu.com"
+//     });
+// }
 
 onMounted(() => {
-  fetchConfig();
+  // fetchConfig();
 })
 </script>
 
 
 <template>
-  <iframe class="home-iframe" :src="state.iframeUrl" scrolling="no"></iframe>
+  <h1>Welcome</h1>
 </template>
 
 

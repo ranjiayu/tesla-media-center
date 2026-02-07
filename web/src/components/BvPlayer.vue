@@ -210,14 +210,14 @@ function addDanmu(danmuText: string, color='#fff') {
 
 function moveDanmu(elem: any, container: any) {
     let pos = parseInt(elem.style.left);
-    const id = setInterval(frame, 50); // 每5ms移动一次
+    const id = setInterval(frame, 25); // 每5ms移动一次
 
     function frame() {
         if (pos < -elem.offsetWidth) { // 如果完全离开左侧
             clearInterval(id);
             elem.parentNode.removeChild(elem); // 删除元素
         } else {
-            pos -= 5; // 向左移动
+            pos -= 2.5; // 向左移动
             elem.style.left = `${pos}px`;
         }
     }
@@ -362,7 +362,7 @@ onUnmounted(() => {
     border: 0px solid rgb(0, 0, 0);
     position: absolute;
     width: 1100px;
-    height: 623px;
+    height: 223px;
     top: 0;
     overflow: hidden;
 }
@@ -376,7 +376,7 @@ onUnmounted(() => {
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.0);
 }
 
 #videoWrapper {

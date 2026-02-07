@@ -16,12 +16,11 @@ const router = useRouter();
 const state = reactive({
   // isTesla: navigator.userAgent.toLowerCase().indexOf('tesla') >= 0,
   isTesla: true,
-  menuTopItems: [{icon: House, route:'/apps/home'}],
   menuItems: [
-    {icon: MapLocation, route: '/apps/nav'},
+    // {icon: MapLocation, route: '/apps/nav'},
     // {icon: Headset, route: 'music'},
     {icon: '/icon/BILIBILI_LOGO.svg', route: '/apps/bilibili'},
-    {icon: VideoPlay, route: '/apps/video'},
+    // {icon: VideoPlay, route: '/apps/video'},
     // {icon: SwitchFilled, route: 'game'},
     {icon: Monitor, route: '/apps/debug'},
     // {icon: Setting, route: 'setting'},

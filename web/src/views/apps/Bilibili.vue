@@ -16,6 +16,7 @@ const state = reactive({
   searchText: '',
   searchVideoResult: [] as any[],
   searchLoading: false,
+  bvidInput: '',
 })
 
 
@@ -75,7 +76,14 @@ const searchByText = () => {
   }).finally(() => {
     state.searchLoading = false;
   })
+}
 
+const playByBVID = () => {
+  const bvid = state.bvidInput.trim();
+  if (!bvid) {
+    return;
+  }
+  videoSelect('bv', bvid);
 }
 
 const tabChange = (name: string) => {
@@ -150,8 +158,13 @@ onMounted(() => {
           <BiliCover v-for="video of state.searchVideoResult" :video="video" :on-click="(type, id) => videoSelect(type, id)" />
         </el-space>
       </el-tab-pane>
-      <el-tab-pane label="关注" name="关注">关注</el-tab-pane>
-      <el-tab-pane label="我的" name="my">我的</el-tab-pane>
+      <el-tab-pane label="BVID" name="bvid">
+        <el-input class="search-input" v-model="state.bvidInput" size="large" placeholder="请输入BV号，例如：BV1bAF7z5EvN" :prefix-icon="Search"  @keyup.enter="playByBVID">
+          <template #append>
+            <el-button @click="playByBVID">播放</el-button>
+          </template>
+        </el-input>
+      </el-tab-pane>
     </el-tabs>
     
   </div>
