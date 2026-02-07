@@ -15,6 +15,7 @@ const router = useRouter();
 
 const state = reactive({
   // isTesla: navigator.userAgent.toLowerCase().indexOf('tesla') >= 0,
+
   isTesla: true,
   menuItems: [
     // {icon: MapLocation, route: '/apps/nav'},
@@ -44,11 +45,7 @@ onMounted(() => {
   <template v-if="state.isTesla">
     <div class="menu">
       <div class="menu-top">
-        <div class="menu-item" v-for="item of state.menuTopItems">
-          <el-icon @click="routeTo(item.route)">
-            <component :is="item.icon"></component>
-          </el-icon>
-        </div>
+
       </div>
       <div class="menu-bottom">
         <div class="menu-item" :class="{ 'menu-item-active': item.route == state.curMenu }" v-for="item of state.menuItems">
